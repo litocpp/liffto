@@ -1,0 +1,41 @@
+[package]
+name = "liffto"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+authors = ["hypengw <hypengwip@gmail.com>"]
+
+[lib]
+name = "liffto"
+module = "liffto"
+archive = "liffto"
+
+[[test]]
+name = "liffto-tests"
+sources = ["tests/main.cpp", "tests/fft.cpp", "tests/memory.cpp"]
+link-stdlib = false
+
+[[bench]]
+name = "liffto-bench"
+sources = ["benches/liffto-bench.cpp"]
+link-stdlib = false
+
+[[example]]
+name = "basic"
+sources = ["examples/basic.cpp"]
+
+[[example]]
+name = "codegen"
+sources = ["examples/codegen.cpp"]
+
+[profile.base]
+exceptions = false
+rtti = false
+
+[dependencies]
+rstd-core = { version = "0.1.7", pub = true }
+rstd-alloc = { version = "0.1.7", pub = true }
+
+[dev-dependencies]
+rstd-nostd = { version = "0.1.7", usage = "link" }
+rstd-test = { version = "0.1.7" }
+rstd-bench = { version = "0.1.7" }
