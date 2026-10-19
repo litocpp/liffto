@@ -32,10 +32,10 @@ exceptions = false
 rtti = false
 
 [dependencies]
-rstd-core = { version = "0.1.7", pub = true }
-rstd-alloc = { version = "0.1.7", pub = true }
+rstd-core = { version = "0.1.9", pub = true }
+rstd-alloc = { version = "0.1.9", pub = true }
 
 [dev-dependencies]
-rstd-nostd = { version = "0.1.7", usage = "link" }
-rstd-test = { version = "0.1.7" }
-rstd-bench = { version = "0.1.7" }
+rstd-nostd = { version = "0.1.9", usage = "link" }
+rstd-test = { version = "0.1.9" }
+rstd-bench = { version = "0.1.9" }
