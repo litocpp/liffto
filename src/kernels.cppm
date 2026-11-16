@@ -14,12 +14,11 @@ inline constexpr size_t lanes = sizeof(T) == 4 ? 4 : 2;
 
 template<Float T>
 auto load(const T* p) {
-    return rstd::simd::Simd<T, lanes<T>>::from_slice(
-        rstd::slice<T>::from_raw_parts(p, usize(lanes<T>)));
+    return rstd::simd::Simd<T, lanes<T>>::load_unaligned(p);
 }
 template<Float T>
 void store(T* p, rstd::simd::Simd<T, lanes<T>> v) {
-    v.copy_to_slice(rstd::mut_ref<T[]>::from_raw_parts(p, usize(lanes<T>)));
+    v.store_unaligned(p);
 }
 
 template<Float T, bool Vector, bool Inverse>

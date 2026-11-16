@@ -198,7 +198,7 @@ struct CsvReporter {
                               result.descriptor.id,
                               result.repetition,
                               epoch.iterations,
-                              epoch.elapsed.as_nanos());
+                              epoch.elapsed.nanoseconds());
         return Ok(empty {});
     }
 };
@@ -225,7 +225,7 @@ void add(Suite&    suite,
 }
 template<typename T>
 void cases(Suite& suite) {
-    size_t  lengths[]  = { 1, 2, 4, 8, 16, 64, 256, 1024, 4096, 65536, 15, 1000, 1009 };
+    size_t  lengths[]  = { 1, 2, 4, 8, 16, 64, 256, 1024, 4096, 65536, 15, 1000, 1009, 2089 };
     Backend backends[] = { Backend::Scalar, Backend::Simd, Backend::Auto };
     for (auto n : lengths) {
         for (auto b : backends) {
@@ -243,6 +243,7 @@ void cases(Suite& suite) {
         }
     add<T>(suite, 64, Operation::Short, Backend::Auto, 32, 1);
     add<T>(suite, 1024, Operation::InPlace, Backend::Auto, 1, 1);
+    add<T>(suite, 2089, Operation::Forward, Backend::Simd, 1, 1);
     add<T>(suite, 65536, Operation::Forward, Backend::Auto, 64, 1);
 }
 int main(int argc, const char* const* argv) {

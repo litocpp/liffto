@@ -157,8 +157,8 @@ TEST(Fft, DoubleMatrix) {
 template<typename T>
 void large_cases() {
     Accuracy accuracy;
-    for (size_t n : array<decltype(size_t(1000)), 4> {
-             size_t(1000), size_t(1009), size_t(4096), size_t(65536) }) {
+    for (size_t n : array<decltype(size_t(1000)), 5> {
+             size_t(1000), size_t(1009), size_t(2089), size_t(4096), size_t(65536) }) {
         for (auto backend :
              array<decltype(Backend::Scalar), 2> { Backend::Scalar, Backend::Simd }) {
             auto plan      = FftPlan<T>::make(usize(n), Normalization::Backward, backend).unwrap();
@@ -170,7 +170,7 @@ void large_cases() {
             ASSERT_TRUE(
                 plan.forward(input.as_slice(), output.as_mut_slice().as_mut_ref(), workspace)
                     .is_ok());
-            if (n <= 1009) {
+            if (n <= 2089) {
                 auto expected = dft(input.as_slice(), false, 1);
                 verify<T>(output.as_slice(),
                           expected.as_slice(),
