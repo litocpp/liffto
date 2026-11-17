@@ -1,6 +1,6 @@
 [package]
 name = "liffto"
-version = "0.1.0"
+version = "0.1.1"
 license = "MIT OR Apache-2.0"
 authors = ["hypengw <hypengwip@gmail.com>"]
 
@@ -32,10 +32,10 @@ exceptions = false
 rtti = false
 
 [dependencies]
-rstd-core = { version = "0.1.9", pub = true }
-rstd-alloc = { version = "0.1.9", pub = true }
+rstd-core = { version = "0.1.13", pub = true }
+rstd-alloc = { version = "0.1.13", pub = true }
 
 [dev-dependencies]
-rstd-nostd = { version = "0.1.9", usage = "link" }
-rstd-test = { version = "0.1.9" }
-rstd-bench = { version = "0.1.9" }
+rstd-nostd = { version = "0.1.13", usage = "link" }
+rstd-test = { version = "0.1.13" }
+rstd-bench = { version = "0.1.13" }

@@ -1,2 +1,10 @@
+<release version="0.1.1" date="2026-11-17">
+  <description>
+    <ul>
+      <li>Use unaligned SIMD memory access in FFT kernels.</li>
+      <li>Update rstd to 0.1.13.</li>
+    </ul>
+  </description>
+</release>
 <release version="0.1.0" date="2026-10-20">
 </release>
